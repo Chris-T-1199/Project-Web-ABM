@@ -1,0 +1,248 @@
+:root {
+  /* COULEURS PRINCIPALES */
+  --couleur-texte:        #3D2B1F;
+  --couleur-accent:       #C4622D;
+  --couleur-secondaire:   #2E5E4E;
+  --couleur-fond:         #F5F0E8;
+  --couleur-blanc:        #FFFFFF;
+
+  /* COULEURS DE SUPPORT */
+  --couleur-fond-alt:     #F2E8DC;
+  --couleur-texte-doux:   #7A4A2E;
+  --couleur-bordure:      #E8D5C4;
+  --couleur-sombre:       #1A1A18;
+
+  /* TYPOGRAPHIES */
+  --typo-titre:   'NOM-POLICE-TITRES', serif;
+  --typo-corps:   'NOM-POLICE-CORPS', sans-serif;
+}
+
+/* 1. RESET & BASE STYLES */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  position: relative;
+}
+
+/*  2. HEADER & NAVIGATION (FLEXBOX LAYOUT) */
+
+header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;/* Pushes logo to left, nav to right */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0056b3;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;/*Space between links*/
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+/* 3. HERO BANNER (FLEXBOX CENTERING) */
+
+.hero {
+  background: linear-gradient(rgba(0,86,179,0.8), rgba(0,86,179,0.8)), url('hero-bg.jpg') no-repeat center center/cover;
+  color: white;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;/*Vertical center*/
+  align-items: center;/*Horizontal center*/
+  text-align: center;
+  padding: 0 20px;
+  max-width: 100%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.btn {
+  background-color: #ffc107;
+  color: #333;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #e0a800;
+}
+
+/* 4. SERVICES (FLEXBOX ROW LAYOUT) */
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;/*Wraps cleanly onto small mobile screens*/
+}
+
+.card {
+  background: white;
+  flex: 1;
+  min-width: 280px;/*Prevents cards from getting too squished*/
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+/* 5. À PROPOS (GRID 2-COLUMN LAYOUT) */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;/*Split exactly in half*/
+  gap: 40px;
+  align-items: center;
+  text-align: left;
+}
+
+.about-image {
+  background-color: #ddd;
+  height: 350px;
+  border-radius: 8px;
+  /*You can add a real background image here later*/
+}
+
+/* 6. NOTRE ÉQUIPE (FLEXBOX ROW) */
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.member {
+  background: white;
+  width: 200px;
+  padding: 20px;
+  border-radius: 50%;/*Makes cards perfectly circular if width/height match*/
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+/* CONTACT FORM (CENTERED BLOCK) */
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact button {
+  background-color: #0056b3;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #004085;
+}
+
+/* 8. FOOTER */
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* 9. RESPONSIVE MEDIA QUERIES (MOBILE LAYOUT FIXES) */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;/*Switch to single column on mobile*/
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
