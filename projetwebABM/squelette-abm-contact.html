@@ -4,43 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nous joindre | Atelier Boréal Médias</title>
-
-  <!-- TYPOGRAPHIES : même lien que dans index.html -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="LIEN-GOOGLE-FONTS-ICI" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <div class="logo"> <img src="" alt="logo"> </div> 
-        <nav>
-            <ul>
-                <li><a href="abm.html">Accueil</a></li>
-                <li><a href="abm.html">Services</a></li>
-                <li><a href="abm.html">Équipe</a></li>
-                <li><a href="squelette-abm-contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="logo">
+      <img src="images/abm-logo.png" alt="Boréale Média">
+      <span>Boréale Média</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="abm.html">Accueil</a></li>
+        <li><a href="abm.html#services">Services</a></li>
+        <li><a href="abm.html#team">Équipe</a></li>
+        <li><a href="squelette-abm-contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="page-contact">
+    <section class="contact-hero">
+      <div class="contact-copy reveal">
+        <span class="hero-badge">Prêt à démarrer ?</span>
+        <h1>Nous joindre</h1>
+        <p>Une question, un projet, une idée ? Écrivez-nous et nous vous répondrons dans les plus brefs délais.</p>
+      </div>
 
-    <h1>Nous joindre</h1>
-    <p>Une question, un projet, une idée ? Écrivez-nous et nous vous répondrons dans les plus brefs délais.</p>
-
-    <form class="formulaire-contact" action="#" method="post">
-      <input type="text" placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-
+      <form class="formulaire-contact reveal" action="https://formspree.io/f/your-id" method="POST">
+        <label>
+          <span>Nom</span>
+          <input type="text" name="name" placeholder="Votre nom" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="Votre email" required>
+        </label>
+        <label>
+          <span>Objet</span>
+          <input type="text" name="subject" placeholder="Objet du message">
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" placeholder="Décrivez votre projet" required></textarea>
+        </label>
+        <button type="submit">Envoyer le message</button>
+      </form>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2026 Boréale Média & Associés. Tous droits réservés.</p>
   </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
